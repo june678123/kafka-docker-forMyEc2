@@ -10,9 +10,29 @@ services:
     ports:
       - "9092:9092"
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: 172.31.27.224
-      KAFKA_CREATE_TOPICS: "test:1:1"
+      # KAFKA_ADVERTISED_HOST_NAME: 172.31.27.224
+      # KAFKA_CREATE_TOPICS: "test:1:1"
+      KAFKA_CREATE_TOPICS: >
+        delete-payment-topic:1:1,
+        delete-service-topic:1:1,
+        delete-weightrange-second-topic:1:1,
+        delete-weightrange-topic:1:1,
+        delete-weightrange-topic-2:1:1,
+        payment-topic:1:1,
+        payment-topic-one:1:1,
+        payment-topic-three:1:1,
+        payment-topic-two:1:1,
+        process-payment-error:1:1,
+        service-permit-topic:1:1,
+        service-permit-topic-one:1:1,
+        service-permit-topic-two:1:1,
+        service-topic:1:1,
+        transporter-name-topic:1:1,
+        update-weightrange-topic:1:1,
+        weightrange-topic:1:1,
+        weightrange-topic-2:1:1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://172.31.27.224:9092
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
